@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HeaderComponent } from "./layout/header/header.component";
 import { IndexComponent } from "./layout/index/index.component";
+import { GuardGuard } from './config/guard/guard.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: IndexComponent,
-		//canActivate : [ AuthGuard ],
+		canActivate : [ GuardGuard ],
 		children: [
 			{
 				path: '',
