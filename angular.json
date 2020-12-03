@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "hotel"
+  "defaultProject": "hotel",
+  "cli": {
+    "analytics": false
+  }
 }
