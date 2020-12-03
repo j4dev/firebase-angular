@@ -8,6 +8,6 @@ export class AuthService {
   constructor() { }
   
   getToken() {
-    return localStorage.getItem('user_name')
+    return localStorage.getItem('email')
 	}
 }

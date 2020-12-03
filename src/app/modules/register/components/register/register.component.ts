@@ -27,13 +27,6 @@ export class RegisterComponent implements OnInit {
       'password' : ['', Validators.required],
       'user_tipo' : ['',Validators.required]
     });
-
-    this.firebaseService.getUser().subscribe(res => {
-      //console.log(res);
-      
-    }, error => {
-      console.log(error);
-    })
   }
 
   onSubmit(user: any){
