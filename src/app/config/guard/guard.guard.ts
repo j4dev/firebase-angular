@@ -16,12 +16,12 @@ export class GuardGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot){
+    state: RouterStateSnapshot
+    ){
       if ( this.authService.getToken() ) {
         return true
       }
-      console.log( state ) 
-      this.router.navigate( ['/login'] )
+      this.router.navigate( ['/login'] );
   }
   
 }
