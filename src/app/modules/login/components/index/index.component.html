@@ -1,1 +1,26 @@
-<p>index works!</p>
+<div class=" container mx-auto">
+    <div class="card" style="text-align: center;">
+        <h4 class="card-header">Hotel HOSOP </h4>
+        <div class="card-body">
+            <form class="container col-5" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <div class="form-group" id="user-group">
+                    <span class="">
+                        <i class="fa fa-user"></i>
+                    </span>
+                <input formControlName="user_name" type="email" class="form-control"
+                        placeholder="Usuario" />
+                </div>
+                <div class="form-group" id="">
+                    <span class="">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                    <input formControlName="password" type="password" class="form-control"
+                        placeholder="Contraseña" />
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> INICIAR</button><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
