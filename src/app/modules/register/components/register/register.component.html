@@ -7,24 +7,38 @@
                     <span class="">
                         <i class="fa fa-user"></i>
                     </span>
-                    <input formControlName="user_name" type="text" class="form-control" placeholder="Escriba su nombre" />
+                    <input formControlName="user_name" type="text" class="form-control" placeholder="Escriba su nombre"
+                        [ngClass]="{'is-invalid': f.user_name.invalid && (f.user_name.dirty||f.user_name.touched)}" />
                 </div>
                 <div class="form-group">
                     <span class="">
                         <i class="fa fa-envelope"></i>
                     </span>
-                    <input formControlName="email" type="email" class="form-control" placeholder="Ingrese su correo" />
+                    <input formControlName="email" type="email" class="form-control" placeholder="Ingrese su correo"
+                        [ngClass]="{'is-invalid': f.email.invalid && (f.email.dirty||f.email.touched)}" />
                 </div>
-                <div class="form-group" >
+                <div class="form-group">
                     <span class="">
                         <i class="fa fa-lock"></i>
                     </span>
-                    <input formControlName="password" type="password" class="form-control" placeholder="Contraseña" />
+                    <input formControlName="password" type="password" class="form-control" placeholder="Contraseña"
+                        [ngClass]="{'is-invalid': f.password.invalid && (f.password.dirty||f.password.touched)}" />
+                </div>
+
+                <div class="form-group">
+                    <span class="">
+                        Rol de usuario
+                    </span>
+                    <select class="custom-select" formControlName="user_tipo" [ngClass]="{'is-invalid': f.user_tipo.invalid && (f.user_tipo.dirty||f.user_tipo.touched)}">
+                        <option value="1">Administrador</option>
+                        <option value="2">Cliente</option>
+                    </select>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="!RegisterForm.valid"><i class="fas fa-sign-in-alt"></i>
                         Registrarme</button><br>
-                        <a class="nav-link" [routerLink]="['/login']">Iniciar Sesión</a>
+                    <a class="nav-link" [routerLink]="['/login']">Iniciar Sesión</a>
                 </div>
             </form>
         </div>

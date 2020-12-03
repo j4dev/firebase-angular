@@ -19,10 +19,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
 
     this.RegisterForm = this.formBuilder.group({
-      'user_name' : [null, Validators.required],
-      'email' : [null, Validators.required, Validators.email],
-      'password' : [null, Validators.required],
-      'user_tipo' : [null,Validators.required]
+      'user_name' : ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      'email' : ['', [Validators.required, Validators.email]],
+      'password' : ['', Validators.required],
+      'user_tipo' : ['',Validators.required]
     });
 
   }
@@ -32,4 +32,5 @@ export class RegisterComponent implements OnInit {
     
   }
 
+  get f() { return this.RegisterForm.controls; }
 }
