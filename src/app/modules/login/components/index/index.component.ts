@@ -11,7 +11,6 @@ import { Router } from "@angular/router";
 export class IndexComponent implements OnInit {
   
   loginForm: FormGroup;
-  users:any;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -21,14 +20,13 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
 
     this.loginForm = this.formBuilder.group({
-			'user_name' : [null, Validators.required],
-      'password' : [null, Validators.required],
-      'user_tipo' : [null,Validators.required]
+			'email' : [null, Validators.required, Validators.email],
+      'password' : [null, Validators.required]
     });
 
   }
 
-  onSubmit(form: any){
+  onSubmit(user: any){
     
   }
 }
