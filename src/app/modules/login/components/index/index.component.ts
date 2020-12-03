@@ -20,13 +20,16 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
 
     this.loginForm = this.formBuilder.group({
-			'email' : [null, Validators.required, Validators.email],
+			'email' : [null, [Validators.required, Validators.email]],
       'password' : [null, Validators.required]
     });
 
   }
 
   onSubmit(user: any){
+    console.log(user);
     
   }
+
+  get f() { return this.loginForm.controls; }
 }

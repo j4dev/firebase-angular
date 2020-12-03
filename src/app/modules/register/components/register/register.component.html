@@ -29,7 +29,8 @@
                     <span class="">
                         Rol de usuario
                     </span>
-                    <select class="custom-select" formControlName="user_tipo" [ngClass]="{'is-invalid': f.user_tipo.invalid && (f.user_tipo.dirty||f.user_tipo.touched)}">
+                    <select class="custom-select" formControlName="user_tipo" 
+                    [ngClass]="{'is-invalid': f.user_tipo.invalid && (f.user_tipo.dirty||f.user_tipo.touched)}">
                         <option value="1">Administrador</option>
                         <option value="2">Cliente</option>
                     </select>
