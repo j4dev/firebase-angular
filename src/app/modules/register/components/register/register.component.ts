@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { FirebaseService } from "../../../../services/firebase.service";
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -14,6 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private router: Router,
+    private firebaseService: FirebaseService
   ) { }
 
   ngOnInit(): void {
@@ -25,11 +28,22 @@ export class RegisterComponent implements OnInit {
       'user_tipo' : ['',Validators.required]
     });
 
+    this.firebaseService.getUser().subscribe(res => {
+      //console.log(res);
+      
+    }, error => {
+      console.log(error);
+    })
   }
 
   onSubmit(user: any){
     console.log(user);
-    
+    this.firebaseService.createUser(user).then(res => {
+      this.RegisterForm.reset();
+    }).catch(error => {
+      console.log(error);
+      
+    })
   }
 
   get f() { return this.RegisterForm.controls; }
