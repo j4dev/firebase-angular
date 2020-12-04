@@ -18,4 +18,15 @@ export class FirebaseService {
   getUser(){
     return this.firestore.collection("usuario").snapshotChanges();
   }
+
+  updateUser(id: any, usuario: any){
+    this.firestore.collection("usuario").doc(id).update(usuario);
+  }
+
+  uploadFile(id: any, urlFile: any){
+    console.log(urlFile);
+    this.firestore.doc('usuario/'+id).update({
+      payment: urlFile
+    })
+  }
 }

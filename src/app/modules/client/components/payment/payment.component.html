@@ -2,10 +2,18 @@
     <div class="card" style="text-align: center;">
         <h4 class="card-header">Subir foto del pago</h4>
         <div class="card-body">
-            <form class="container col-5" [formGroup]="PaymentForm" (ngSubmit)="onSubmit(PaymentForm.value)">
-                <input formControlName="imagen" type="file" name="pago" id="pago" accept=".png, .jpg" (change)="onUpload($event)"/>
+            <form class="container col-5" [formGroup]="PaymentForm" (ngSubmit)="onSubmit()">
+                <input formControlName="imagen" type="file" name="pago" id="pago" accept=".png, .jpg"
+                    (change)="onUpload($event)" />
+                <span  *ngIf="urlImage | async">
+                    Se subio correctamente click en Enviar</span>
+                <input #imageUser type="hidden" [value]="urlImage | async">
                 <div>
-                    <button type="submit" class="btn btn-success" [disabled]="!PaymentForm.valid">Enviar</button><br>
+                    <button type="submit" class="btn btn-success"
+                        *ngIf="urlImage | async; else btnDisabled">Enviar</button><br>
+                    <ng-template #btnDisabled>
+                        <button type="submit" disabled=true class="btn btn-success">Enviar</button>
+                    </ng-template>
                 </div>
             </form>
         </div>
