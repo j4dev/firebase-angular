@@ -19,7 +19,9 @@ export class AuthService {
     // remove user from local storage
     localStorage.removeItem('user_name');
     localStorage.removeItem('email');
-    localStorage.removeItem('user_tipo');
+    localStorage.removeItem('tipo');
+    localStorage.removeItem('id_user');
+    localStorage.removeItem('aprobado');
     this.router.navigate(['/login']);
   }
 }

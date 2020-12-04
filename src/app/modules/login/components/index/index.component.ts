@@ -41,6 +41,9 @@ export class IndexComponent implements OnInit {
             localStorage.setItem('email',e.payload.doc.data().email);
             localStorage.setItem('tipo',e.payload.doc.data().user_tipo);
             localStorage.setItem('id_user',e.payload.doc.id);
+            if (e.payload.doc.data().user_tipo == 2) {
+              localStorage.setItem('aprobado',e.payload.doc.data().publicacion);
+            }
           }
         }
       });
