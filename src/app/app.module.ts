@@ -9,6 +9,7 @@ import { IndexComponent } from './layout/index/index.component';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from "@angular/fire/storage";
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

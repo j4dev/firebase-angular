@@ -1,1 +1,13 @@
-<p>payment works!</p>
+<div class=" container mx-auto">
+    <div class="card" style="text-align: center;">
+        <h4 class="card-header">Subir foto del pago</h4>
+        <div class="card-body">
+            <form class="container col-5" [formGroup]="PaymentForm" (ngSubmit)="onSubmit(PaymentForm.value)">
+                <input formControlName="imagen" type="file" name="pago" id="pago" accept=".png, .jpg" (change)="onUpload($event)"/>
+                <div>
+                    <button type="submit" class="btn btn-success" [disabled]="!PaymentForm.valid">Enviar</button><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
