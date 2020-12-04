@@ -46,7 +46,12 @@ export class IndexComponent implements OnInit {
 
       if(email){
         if(pass){
-          this.router.navigate(['/']);
+          var tipoUsuario: number = +localStorage.getItem('tipo');
+          if (tipoUsuario == 2) {
+            this.router.navigate(['/cliente']);
+          } else {
+            this.router.navigate(['/admin']);
+          }
         }
         else{
           alert('Contraseña Incorrecta. Reintente de nuevo');
