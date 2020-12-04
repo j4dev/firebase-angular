@@ -1,0 +1,25 @@
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+
+            <th scope="col">Nombre</th>
+            <th scope="col">Corre</th>
+            <th scope="col">Aprobación</th>
+            <th scope="col">Comprobantes</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+        <tr>
+            <td>{{user.nombre}}</td>
+            <td>{{user.correo}}</td>
+            <td>{{user.aprobado}}</td>
+            <td>
+                <a *ngIf="user.payment; else btnDisabled" class="nav-link" href="user.enlace" target="_blanck">Comprobante</a></td>
+                <ng-template #btnDisabled>
+                    <button type="submit" disabled=true class="btn btn-warning">Sin comprobante</button>
+                </ng-template>
+            <td>
+            <td><button class="btn btn-success" (click)="aprobar(user.id)" [disabled]="!user.payment"> Aprobar</button></td>
+        </tr>
+    </tbody>
+</table>
